@@ -1,11 +1,12 @@
 import "reflect-metadata";
-import { createConnection } from "typeorm";
-import { User } from "./entity/User";
+// import { createConnection } from "typeorm";
+// import { User } from "./entity/User";
 import express from "express";
 
 (async () => {
   const app = express();
   app.listen(4000, () => {
+    app.get("/", (_req, res) => res.send("Hello"));
     console.log("express server started");
   });
 })();
