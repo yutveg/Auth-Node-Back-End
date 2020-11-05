@@ -7,7 +7,6 @@ import {
   ObjectType,
   Ctx,
 } from "type-graphql";
-import { sign } from "jsonwebtoken";
 import { compare, hash } from "bcryptjs";
 import { User } from "./entity/User";
 import { MyContext } from "./MyContext";
