@@ -9,7 +9,7 @@ import { createConnection } from "typeorm";
 
 (async () => {
   const app = express();
-  app.get("/", (_req, res) => res.send("Hello"));
+  app.get("/", (_req, res) => res.send("TypeScript Node Auth Project"));
 
   await createConnection();
 
@@ -21,7 +21,7 @@ import { createConnection } from "typeorm";
   });
 
   app.listen(4000, () => {
-    console.log("express server started");
+    console.log("Server listening at localhost:4000");
   });
 
   apolloServer.applyMiddleware({ app });
