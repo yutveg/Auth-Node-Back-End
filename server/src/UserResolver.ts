@@ -13,6 +13,7 @@ import { User } from "./entity/User";
 import { MyContext } from "./MyContext";
 import { createAccessToken, createRefreshToken } from "./auth";
 import { isAuth } from "./isAuth";
+import { sendRefresh } from "./sendRefresh";
 
 @ObjectType()
 class LoginResponse {
@@ -76,9 +77,7 @@ export class UserResolver {
       throw new Error("Invalid login");
     }
 
-    res.cookie("jid", createRefreshToken(user), {
-      httpOnly: true,
-    });
+    sendRefresh(res, createRefreshToken(user));
 
     return {
       accessToken: createAccessToken(user),
