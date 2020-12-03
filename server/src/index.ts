@@ -67,7 +67,7 @@ import cors from "cors";
     console.log("Server listening at localhost:4000");
   });
 
-  apolloServer.applyMiddleware({ app });
+  apolloServer.applyMiddleware({ app, cors: false });
 })();
 
 // createConnection()
