@@ -10,12 +10,19 @@ import { verify } from "jsonwebtoken";
 import { User } from "./entity/User";
 import { createAccessToken, createRefreshToken } from "./auth";
 import { sendRefresh } from "./sendRefresh";
+import cors from "cors";
 
 (async () => {
   const app = express();
   app.use(cookieParser());
-  app.get("/", (_req, res) => res.send("TypeScript Node Auth Project"));
+  app.use(
+    cors({
+      credentials: true,
+      origin: "http://localhost:3000",
+    })
+  );
 
+  app.get("/", (_req, res) => res.send("TypeScript Node Auth Project"));
   app.post("/refresh_token", async (req, res) => {
     const token = req.cookies.jid;
 
